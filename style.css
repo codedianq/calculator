@@ -34,4 +34,20 @@ body {
     width: 100%;
     height: 100%;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+
+.btn-container .button {
+    display: flex;
+    flex: 1;
+    gap: 5px;
+}
+
+.btn-container .delete, 
+.delete-all,
+.btn {
+    flex: 1;
+}
+
