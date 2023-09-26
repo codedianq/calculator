@@ -3,27 +3,6 @@ let previousValue = '';
 let currentValue = '';
 let operator;
 
-// Create functions for add, subtract, multiply, and divide.
-function addition(num1, num2) {
-    let sumValue = (num1 + num2);
-    return sumValue;
-}
-
-function subtraction(num1, num2) {
-    let differenceValue = (num1 - num2);
-    return differenceValue;
-}
-
-function multiplication(num1, num2) {
-    let productValue = (num1 * num2);
-    return productValue
-}
-
-function division(num1, num2) {
-    let quotientValue = (num1 / num2);
-    return quotientValue;
-}
-
 // Create a new function named operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 
 function operate() {
