@@ -59,7 +59,7 @@ function outputNumber(num) {
     }
 }
 
-// Calculator functions
+// Operator buttons
 const operators = document.querySelectorAll('.operator');
 
 operators.forEach((op) => op.addEventListener('click', (e) => {
@@ -73,3 +73,15 @@ function outputOperator(op) {
     previousValue = currentValue;
     currentValue = '';
 }
+
+// Clear all button
+const deleteBtn = document.querySelector('.delete');
+const deleteAllBtn = document.querySelector('.delete-all');
+
+deleteAllBtn.addEventListener('click', () => {
+    previousValue = '';
+    currentValue = '';
+    operator = '';
+    previousScreen.textContent = previousValue;
+    currentScreen.textContent = currentValue;
+})
