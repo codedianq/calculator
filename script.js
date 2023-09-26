@@ -19,7 +19,8 @@ function operate() {
         previousValue /= currentValue;
     }
     previousValue = roundNumber(previousValue)
-    console.log(previousValue);
+    previousValue = previousValue.toString();
+    currentValue = previousValue.toString();
 }
 
 // Create the functions that populate the display when you click the number buttons.
@@ -57,14 +58,20 @@ function outputOperator(op) {
 const isEqualTo = document.querySelector('#equals-btn');
 
 isEqualTo.addEventListener('click', () => {
-    operate();
+    if(currentValue != '' && previousValue != '') {
+        operate();
+        previousScreen.textContent = '';
+        if(previousValue.length <= 10){
+            currentScreen.textContent = previousValue;
+        } else {
+            currentScreen.textContent = previousValue.slice(0, 10) + '...';
+        }
+    }
 })
 
 function roundNumber(num) {
     return Math.round(num * 2000) / 2000;
 }
-
-
 
 // Clear all button
 const deleteBtn = document.querySelector('.delete');
@@ -75,5 +82,5 @@ deleteAllBtn.addEventListener('click', () => {
     currentValue = '';
     operator = '';
     previousScreen.textContent = previousValue;
-    currentScreen.textContent = currentValue;
+    currentScreen.textContent = previousValue;
 })
