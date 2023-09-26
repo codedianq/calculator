@@ -48,7 +48,7 @@ const numBtn = document.querySelectorAll('.number');
 const currentScreen = document.querySelector('.current-screen');
 const previousScreen = document.querySelector('.previous-screen');
 
-numBtn.forEach((number) => number.addEventListener('click', function(e){
+numBtn.forEach((number) => number.addEventListener('click', (e) => {
     outputNumber(e.target.textContent);
     currentScreen.textContent = currentValue;
 }))
@@ -57,4 +57,19 @@ function outputNumber(num) {
     if(currentValue.length <= 10) {
         currentValue += num
     }
+}
+
+// Calculator functions
+const operators = document.querySelectorAll('.operator');
+
+operators.forEach((op) => op.addEventListener('click', (e) => {
+    outputOperator(e.target.textContent);
+    previousScreen.textContent = `${previousValue} ${operator}`;
+    currentScreen.textContent = currentValue;
+}))
+
+function outputOperator(op) {
+    operator = op;
+    previousValue = currentValue;
+    currentValue = '';
 }
