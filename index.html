@@ -9,7 +9,10 @@
 </head>
 <body>
     <div id="calculator">
-        <div class="screen"></div>
+        <div class="screen">
+            <div class="previous-screen"></div>
+            <div class="current-screen"></div>
+        </div>
         <div class="btn-container">
             <div class="row-1 button">
                 <button class="delete">C</button>
@@ -19,25 +22,25 @@
                 <button class="btn number">7</button>
                 <button class="btn number">8</button>
                 <button class="btn number">9</button>
-                <button class="btn division">÷</button>
+                <button class="btn operator" id="division">÷</button>
             </div>
             <div class="row-3 button">
                 <button class="btn number">4</button>
                 <button class="btn number">5</button>
                 <button class="btn number">6</button>
-                <button class="btn multiplication">x</button>
+                <button class="btn operator" id="multiplication">x</button>
             </div>
             <div class="row-4 button">
                 <button class="btn number">1</button>
                 <button class="btn number">2</button>
                 <button class="btn number">3</button>
-                <button class="btn subtraction">-</button>
+                <button class="btn operator" id="subtraction">-</button>
             </div>
             <div class="row-5 button">
                 <button class="btn">.</button>
                 <button class="btn number">0</button>
                 <button class="btn">=</button>
-                <button class="btn addition">+</button>
+                <button class="btn operator" id="addition">+</button>
             </div>
         </div>
     </div>

@@ -1,23 +1,27 @@
 //global variables
-let x = 0;
-let y = 0;
+let previousValue = '';
+let currentValue = '';
 let operator;
 
 // Create functions for add, subtract, multiply, and divide.
-function addition(x, y) {
-    return x + y;
+function addition(num1, num2) {
+    let sumValue = (num1 + num2);
+    return sumValue;
 }
 
-function subtraction(x, y) {
-    return x - y;
+function subtraction(num1, num2) {
+    let differenceValue = (num1 - num2);
+    return differenceValue;
 }
 
-function multiplication(x, y) {
-    return x * y;
+function multiplication(num1, num2) {
+    let productValue = (num1 * num2);
+    return productValue
 }
 
-function division(x, y) {
-    return x / y;
+function division(num1, num2) {
+    let quotientValue = (num1 / num2);
+    return quotientValue;
 }
 
 // Create a new function named operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
@@ -39,4 +43,18 @@ function operate(operation, x, y) {
     }
 }
 
-console.log(operate('division', 25, 5));
+// Create the functions that populate the display when you click the number buttons.
+const numBtn = document.querySelectorAll('.number');
+const currentScreen = document.querySelector('.current-screen');
+const previousScreen = document.querySelector('.previous-screen');
+
+numBtn.forEach((number) => number.addEventListener('click', function(e){
+    outputNumber(e.target.textContent);
+    currentScreen.textContent = currentValue;
+}))
+
+function outputNumber(num) {
+    if(currentValue.length <= 10) {
+        currentValue += num
+    }
+}
