@@ -26,21 +26,18 @@ function division(num1, num2) {
 
 // Create a new function named operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 
-function operate(operation, x, y) {
-    if (operation === 'addition') {
-        return addition(x, y);
+function operate() {
+    if (operator === '+') {
+        previousValue += currentValue;
+    } else if (operator === '-') {
+        previousValue -= currentValue;
+    } else if (operator === 'x') {
+        previousValue *= currentValue;
+    } else {
+        previousValue /= currentValue;
     }
-    if (operation === 'subtraction') {
-        return subtraction(x, y);
-    }
-    if (operation === 'multiplication') {
-        return multiplication(x, y);
-    }
-    if (operation === 'division') {
-        return division(x, y);
-    }else {
-        return ('Please choose: addition, subtraction, multiplication, or division')
-    }
+
+    console.log(previousValue);
 }
 
 // Create the functions that populate the display when you click the number buttons.
@@ -73,6 +70,15 @@ function outputOperator(op) {
     previousValue = currentValue;
     currentValue = '';
 }
+
+// Calculate
+const isEqualTo = document.querySelector('#equals-btn');
+
+isEqualTo.addEventListener('click', () => {
+    operate();
+})
+
+
 
 // Clear all button
 const deleteBtn = document.querySelector('.delete');
