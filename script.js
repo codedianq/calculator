@@ -31,13 +31,13 @@ const previousScreen = document.querySelector('.previous-screen');
 numBtn.forEach((number) => number.addEventListener('click', (e) => {
     outputNumber(e.target.textContent);
     currentScreen.textContent = currentValue;
-}))
+}));
 
 function outputNumber(num) {
     if(currentValue.length <= 10) {
         currentValue += num
-    }
-}
+    };
+};
 
 // Operator buttons
 const operators = document.querySelectorAll('.operator');
@@ -65,13 +65,13 @@ isEqualTo.addEventListener('click', () => {
             currentScreen.textContent = previousValue;
         } else {
             currentScreen.textContent = previousValue.slice(0, 10) + '...';
-        }
-    }
-})
+        };
+    };
+});
 
 function roundNumber(num) {
     return Math.round(num * 2000) / 2000;
-}
+};
 
 // Clear all button
 const deleteBtn = document.querySelector('.delete');
@@ -80,7 +80,7 @@ const deleteAllBtn = document.querySelector('.delete-all');
 deleteBtn.addEventListener('click', () => {
     currentScreen.textContent = currentScreen.textContent.toString().slice(0, -1);
     currentValue = currentScreen.textContent.toString();
-})
+});
 
 deleteAllBtn.addEventListener('click', () => {
     previousValue = '';
@@ -88,4 +88,17 @@ deleteAllBtn.addEventListener('click', () => {
     operator = '';
     previousScreen.textContent = previousValue;
     currentScreen.textContent = currentValue;
+});
+
+// Decimal function
+const decimalBtn = document.querySelector('#decimal-btn');
+
+decimalBtn.addEventListener('click', () => {
+    addDecimal();
 })
+
+function addDecimal() {
+    if(!currentValue.includes('.')) {
+        currentValue += '.';
+    }
+}
