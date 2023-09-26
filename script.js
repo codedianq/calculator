@@ -6,6 +6,9 @@ let operator;
 // Create a new function named operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 
 function operate() {
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
+
     if (operator === '+') {
         previousValue += currentValue;
     } else if (operator === '-') {
@@ -15,7 +18,7 @@ function operate() {
     } else {
         previousValue /= currentValue;
     }
-
+    previousValue = roundNumber(previousValue)
     console.log(previousValue);
 }
 
@@ -56,6 +59,10 @@ const isEqualTo = document.querySelector('#equals-btn');
 isEqualTo.addEventListener('click', () => {
     operate();
 })
+
+function roundNumber(num) {
+    return Math.round(num * 2000) / 2000;
+}
 
 
 
