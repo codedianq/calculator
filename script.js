@@ -77,10 +77,15 @@ function roundNumber(num) {
 const deleteBtn = document.querySelector('.delete');
 const deleteAllBtn = document.querySelector('.delete-all');
 
+deleteBtn.addEventListener('click', () => {
+    currentScreen.textContent = currentScreen.textContent.toString().slice(0, -1);
+    currentValue = currentScreen.textContent.toString();
+})
+
 deleteAllBtn.addEventListener('click', () => {
     previousValue = '';
     currentValue = '';
     operator = '';
     previousScreen.textContent = previousValue;
-    currentScreen.textContent = previousValue;
+    currentScreen.textContent = currentValue;
 })
